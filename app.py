@@ -124,7 +124,7 @@ with col1:
 with col2:
     invoice_date = st.text_input("Invoice Date", get_today_date())
 
-st.subheader("🏢 Buyer Details")
+st.subheader(" Buyer Details")
 company = st.text_input("Company Name")
 addr1 = st.text_input("Address Line 1")
 addr2 = st.text_input("Address Line 2")
