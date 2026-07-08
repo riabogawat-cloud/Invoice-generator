@@ -215,7 +215,7 @@ if st.button("🚀 Generate Invoice"):
         if pdf_path and os.path.exists(pdf_path):
             with open(pdf_path, "rb") as f:
                 st.download_button(
-                    "⬇️ Download PDF",
+                    " Download PDF",
                     f,
                     file_name=f"Invoice_{invoice_no}.pdf"
                 )
