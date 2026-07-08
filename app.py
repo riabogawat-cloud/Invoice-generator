@@ -91,29 +91,29 @@ def convert_docx_to_pdf(docx_path, output_dir):
 
 
 st.set_page_config(page_title="Invoice Generator", layout="centered")
-st.title("🧾 Invoice Generator")
+st.title(" Invoice Generator")
 st.caption("Real-time Preview • Editable Invoice Number • Audit-Safe")
 
 if not os.path.exists(TEMPLATE_DOCX):
-    st.error("❌ SampleDoc.docx not found.")
+    st.error(" SampleDoc.docx not found.")
     st.stop()
 
 if not os.path.exists(LIBREOFFICE_PATH):
-    st.error("❌ LibreOffice not found.")
+    st.error(" LibreOffice not found.")
     st.stop()
 
-with st.expander("⚠️ Reset Invoice Number (Advanced)"):
+with st.expander(" Reset Invoice Number (Advanced)"):
     st.warning("Reset only in exceptional cases.")
     if st.checkbox("I understand the risk"):
         new_start = st.number_input("Set NEXT invoice number to", min_value=1, step=1)
-        if st.button("🔁 Reset Counter"):
+        if st.button(" Reset Counter"):
             reset_invoice_counter(new_start)
             st.success(f"Next invoice will be {new_start:04d}")
             st.rerun()
 
 
 
-st.subheader("📄 Invoice Information")
+st.subheader(" Invoice Information")
 
 col1, col2 = st.columns(2)
 with col1:
@@ -130,7 +130,7 @@ addr1 = st.text_input("Address Line 1")
 addr2 = st.text_input("Address Line 2")
 gst = st.text_input("GST Number")
 
-st.subheader("🚚 Transport Details")
+st.subheader(" Transport Details")
 col3, col4 = st.columns(2)
 with col3:
     vehicle = st.text_input("Vehicle Number")
@@ -139,7 +139,7 @@ with col4:
     supply_place = st.text_input("Place of Supply")
     broker = st.text_input("Broker Name")
 
-st.subheader("📦 Item Details")
+st.subheader(" Item Details")
 col5, col6, col7 = st.columns(3)
 with col5:
     item = st.text_input("Item Name")
@@ -157,7 +157,7 @@ amount_words = amount_to_words(int(round(amount)))
 
 st.info(
     f"""
-🧾 **Live Invoice Preview**
+ **Live Invoice Preview**
 
 **Invoice No:** {invoice_no}  
 **Date:** {invoice_date}  
@@ -197,7 +197,7 @@ if st.button("🚀 Generate Invoice"):
         replace_placeholders(docx_path, docx_path, replacements)
         save_invoice_number(invoice_no)
 
-        st.success(f"✅ Invoice {invoice_no} generated")
+        st.success(f" Invoice {invoice_no} generated")
 
         try:
             convert_docx_to_pdf(docx_path, tmpdir)
@@ -207,7 +207,7 @@ if st.button("🚀 Generate Invoice"):
 
         with open(docx_path, "rb") as f:
             st.download_button(
-                "⬇️ Download DOCX",
+                " Download DOCX",
                 f,
                 file_name=f"Invoice_{invoice_no}.docx"
             )
