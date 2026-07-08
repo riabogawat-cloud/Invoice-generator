@@ -170,7 +170,7 @@ st.info(
 )
 
 
-if st.button("🚀 Generate Invoice"):
+if st.button(" Generate Invoice"):
     replacements = {
         "<Invoice_Number>": invoice_no,
         "<Date>": invoice_date,
